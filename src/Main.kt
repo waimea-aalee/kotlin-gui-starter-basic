@@ -54,6 +54,7 @@ class MainWindow : JFrame(), ActionListener {
         defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
         isResizable = false
         layout = null
+        contentPane.background = Color.BLACK
 
         pack()
     }
@@ -62,18 +63,19 @@ class MainWindow : JFrame(), ActionListener {
      * Populate the UI with UI controls
      */
     private fun addControls() {
-        val defaultFont = Font(Font.SANS_SERIF, Font.PLAIN, 36)
+        val defaultFont = Font(Font.SANS_SERIF, Font.BOLD, 36)
 
         greetingLabel = JLabel("Hello, World!")
         greetingLabel.horizontalAlignment = SwingConstants.CENTER
         greetingLabel.bounds = Rectangle(50, 50, 500, 100)
         greetingLabel.font = defaultFont
+        greetingLabel.foreground = Color(204,6,89)
         add(greetingLabel)
 
         helloButton = JButton("Click Me!")
         helloButton.bounds = Rectangle(50,200,500,100)
-        helloButton.foreground = Color.MAGENTA
-        helloButton.background = Color(0,0,0)
+        helloButton.foreground = Color.BLACK
+        helloButton.background = Color(204,6,89)
         helloButton.font = defaultFont
         helloButton.addActionListener(this)     // Handle any clicks
         add(helloButton)
@@ -87,6 +89,7 @@ class MainWindow : JFrame(), ActionListener {
         when (e?.source) {
             helloButton -> {
                 greetingLabel.text = "You clicked the button!"
+                println("Click!")
             }
         }
     }
